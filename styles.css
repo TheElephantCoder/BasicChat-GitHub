@@ -6,6 +6,7 @@ body, html {
   background-color: black;
   color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 /* Light Mode */
@@ -29,6 +30,26 @@ body.light-mode .navbar {
   border-bottom: 2px solid black;
 }
 
+/* Glowing Rainbow Text */
+#chat-galaxy, .rainbow-glow {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowGlow 3s infinite alternate;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+               0 0 20px rgba(255, 255, 255, 0.3),
+               0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes rainbowGlow {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Dark Mode Toggler Button */
 .navbar-links .icon-btn {
   background: transparent;
   border: none;
@@ -50,14 +71,26 @@ body.light-mode .navbar-links .icon-btn {
   align-items: center;
   text-align: center;
   background-color: black;
+  transition: background-color 0.3s ease;
 }
 
 body.light-mode .hero {
   background-color: white;
 }
 
-.rainbow-text {
-  background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.btn-primary {
+  background: black;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: white;
+  color: black;
 }
