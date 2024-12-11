@@ -5,16 +5,10 @@ body, html {
   font-family: Arial, sans-serif;
   background-color: black;
   color: white;
-  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
-/* Light Mode */
-body.light-mode {
-  background-color: white;
-  color: black;
-}
-
+/* Navigation Bar */
 .navbar {
   background: black;
   color: white;
@@ -24,43 +18,45 @@ body.light-mode {
   border-bottom: 2px solid white;
 }
 
-body.light-mode .navbar {
-  background: white;
-  color: black;
-  border-bottom: 2px solid black;
-}
-
-/* Glowing Rainbow Text */
-#chat-galaxy, .rainbow-glow {
+/* Animated Rainbow Text */
+#chat-galaxy,
+.animated-rainbow {
   font-size: 1.5rem;
   font-weight: bold;
   background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: rainbowGlow 3s infinite alternate;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
-               0 0 20px rgba(255, 255, 255, 0.3),
-               0 0 30px rgba(255, 255, 255, 0.1);
+  animation: rainbowShift 3s infinite linear;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-@keyframes rainbowGlow {
-  0% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(180deg); }
-  100% { filter: hue-rotate(360deg); }
+/* Rainbow Animation */
+@keyframes rainbowShift {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
 }
 
-/* Dark Mode Toggler Button */
-.navbar-links .icon-btn {
-  background: transparent;
-  border: none;
-  color: inherit;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
+/* Slime Splatters */
+.slime-splatters {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('https://i.imgur.com/Z92UQNd.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+  animation: splatterPulse 4s infinite ease-in-out;
 }
 
-body.light-mode .navbar-links .icon-btn {
-  color: black;
+/* Slime Animation */
+@keyframes splatterPulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
 
 /* Hero Section */
@@ -71,13 +67,25 @@ body.light-mode .navbar-links .icon-btn {
   align-items: center;
   text-align: center;
   background-color: black;
-  transition: background-color 0.3s ease;
 }
 
-body.light-mode .hero {
-  background-color: white;
+.hero-content {
+  max-width: 600px;
+  text-align: center;
+  z-index: 1;
 }
 
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
 .btn-primary {
   background: black;
   color: white;
@@ -93,4 +101,20 @@ body.light-mode .hero {
 .btn-primary:hover {
   background: white;
   color: black;
+}
+
+/* Dark Mode Toggler Button */
+.navbar-links .icon-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .navbar {
+  background: white;
+  color: black;
+  border-bottom: 2px solid black;
 }
