@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time Chatroom</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Website</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="chat-container">
-        <h1>Chatroom</h1>
-        <div id="chat-box"></div>
-        <form id="chat-form">
-            <input type="text" id="message-input" placeholder="Type a message" required />
-            <button type="submit">Send</button>
-        </form>
+  <div id="auth-section">
+    <h1>Login to Chat</h1>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button id="login-btn">Login</button>
+    <button id="signup-btn">Sign Up</button>
+    <p id="auth-error"></p>
+  </div>
+
+  <div id="chat-section" style="display:none;">
+    <h1>Welcome to Chat</h1>
+    <p id="welcome-message"></p>
+    <div id="chatrooms">
+      <h2>Create or Join a Chatroom</h2>
+      <input type="text" id="room-name" placeholder="Chatroom Name">
+      <input type="text" id="access-code" placeholder="Access Code">
+      <button id="create-room-btn">Create</button>
+      <button id="join-room-btn">Join</button>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
-    <script src="script.js"></script>
+    <div id="special-group-chat" style="display:none;">
+      <h2>Special Group Chat</h2>
+      <div id="special-messages"></div>
+      <input type="text" id="special-message-input" placeholder="Type a message">
+      <button id="send-special-btn">Send</button>
+    </div>
+    <div id="chatroom">
+      <h2>Chatroom</h2>
+      <div id="messages"></div>
+      <input type="text" id="message-input" placeholder="Type a message">
+      <button id="send-message-btn">Send</button>
+    </div>
+    <button id="logout-btn">Logout</button>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
