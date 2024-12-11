@@ -14,49 +14,34 @@ body, html {
   color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 20px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
-/* Animated Rainbow Text */
-#chat-galaxy,
-.animated-rainbow {
+.navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
-  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbowShift 3s infinite linear;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Rainbow Animation */
-@keyframes rainbowShift {
-  0% { background-position: 0%; }
-  50% { background-position: 100%; }
-  100% { background-position: 0%; }
+.navbar-links .btn {
+  margin-left: 15px;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Slime Splatters */
-.slime-splatters {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: url('https://i.imgur.com/Z92UQNd.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.7;
-  animation: splatterPulse 4s infinite ease-in-out;
-}
-
-/* Slime Animation */
-@keyframes splatterPulse {
-  0% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.05); opacity: 0.9; }
-  100% { transform: scale(1); opacity: 0.7; }
+.navbar-links .btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
 }
 
 /* Hero Section */
@@ -66,13 +51,15 @@ body, html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: black;
+  background: linear-gradient(145deg, #000, #1a1a1a);
+  position: relative;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 600px;
   text-align: center;
-  z-index: 1;
 }
 
 .hero h1 {
@@ -85,7 +72,6 @@ body, html {
   margin-bottom: 20px;
 }
 
-/* Buttons */
 .btn-primary {
   background: black;
   color: white;
@@ -94,8 +80,7 @@ body, html {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 20px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -103,18 +88,36 @@ body, html {
   color: black;
 }
 
-/* Dark Mode Toggler Button */
-.navbar-links .icon-btn {
-  background: transparent;
-  border: none;
-  color: inherit;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
+/* Slime Background */
+.slime-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(50, 205, 50, 0.2) 20%, transparent 80%),
+                    radial-gradient(circle, rgba(34, 139, 34, 0.2) 15%, transparent 85%);
+  background-size: 300px 300px;
+  background-position: center;
+  opacity: 0.8;
+  z-index: 1;
+  filter: blur(10px);
 }
 
-body.light-mode .navbar {
-  background: white;
-  color: black;
-  border-bottom: 2px solid black;
+/* Animated Rainbow Text */
+.animated-rainbow {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowGlow 5s infinite linear;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Rainbow Animation */
+@keyframes rainbowGlow {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
 }
