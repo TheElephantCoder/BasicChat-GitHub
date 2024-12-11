@@ -3,37 +3,42 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar */
+/* Light Mode */
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
 .navbar {
-  background: linear-gradient(45deg, #000, #fff);
+  background: black;
   color: white;
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 2px solid white;
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.navbar-links .btn {
-  margin-left: 10px;
-  background: transparent;
-  color: white;
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 5px 15px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.navbar-links .btn:hover {
+body.light-mode .navbar {
   background: white;
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+.navbar-links .icon-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+body.light-mode .navbar-links .icon-btn {
   color: black;
 }
 
@@ -44,46 +49,15 @@ body, html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: black;
-  color: white;
-  background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-  animation: rainbowBG 10s infinite;
+  background-color: black;
 }
 
-.hero-content {
-  max-width: 600px;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+body.light-mode .hero {
+  background-color: white;
 }
 
 .rainbow-text {
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.btn-primary {
-  background: white;
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-
-.btn-primary:hover {
-  background: black;
-  color: white;
-  border: 1px solid white;
-}
-
-/* Animation */
-@keyframes rainbowBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
